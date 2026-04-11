@@ -11,8 +11,15 @@ export type LeaveRequest = {
     startDate: string;
     endDate: string;
     noOfDays: number;
-    reason: string;
+    reason?: string;
     leaveStatus: LeaveStatus;
+}
+
+export type CreateLeaveRequestPayload = {
+    leaveType: LeaveType;
+    startDate: string;
+    endDate: string;
+    reason?: string;
 }
 
 export type LeaveRequestQueryParams = {
