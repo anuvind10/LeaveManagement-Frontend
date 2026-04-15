@@ -16,9 +16,8 @@ import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { AxiosError } from "axios";
 import type { ApiError } from "@/types/leaveRequest";
-import { AlertCircle, Loader2 } from "lucide-react";
+import { AlertCircle, Loader2, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
-import { Sun, Moon } from "lucide-react";
 
 export function LoginPage() {
   const { theme, toggle } = useTheme();
