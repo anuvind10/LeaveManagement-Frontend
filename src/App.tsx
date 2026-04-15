@@ -3,6 +3,7 @@ import { LoginPage } from "@/pages/LoginPage";
 import { Route, Routes, Navigate } from "react-router-dom";
 import ProtectedRoute from "@/routes/ProtectedRoute";
 import PublicOnlyRoute from "@/routes/PublicOnlyRoute";
+import RoleRoute from "@/routes/RoleRoute";
 
 const Placeholder = ({ name }: { name: string }) => (
   <div>{name} — coming soon</div>
@@ -40,7 +41,9 @@ export default function App() {
           path="/leave-requests"
           element={
             <ProtectedRoute>
-              <Placeholder name="Leave Requests" />
+              <RoleRoute allowedRoles={["Manager", "HR"]}>
+                <Placeholder name="Leave Requests" />
+              </RoleRoute>
             </ProtectedRoute>
           }
         />
