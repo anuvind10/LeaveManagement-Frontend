@@ -17,8 +17,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import type { AxiosError } from "axios";
 import type { ApiError } from "@/types/leaveRequest";
 import { AlertCircle, Loader2 } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
+import { Sun, Moon } from "lucide-react";
 
 export function LoginPage() {
+  const { theme, toggle } = useTheme();
   const navigate = useNavigate();
   const { login } = useAuth();
   const {
@@ -45,6 +48,15 @@ export function LoginPage() {
   return (
     // Full-screen centred layout — same bg as the app shell
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="absolute top-4 right-4">
+        <button
+          onClick={toggle}
+          className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+        >
+          {theme === "dark" ? <Sun size={13} /> : <Moon size={13} />}
+          {theme === "dark" ? "Light" : "Dark"}
+        </button>
+      </div>
       <div className="w-full max-w-sm">
         {/* App mark above the card */}
         <div className="mb-8 flex flex-col items-center gap-2 text-center">
