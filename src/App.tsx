@@ -4,7 +4,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import ProtectedRoute from "@/routes/ProtectedRoute";
 import PublicOnlyRoute from "@/routes/PublicOnlyRoute";
 import RoleRoute from "@/routes/RoleRoute";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const Placeholder = ({ name }: { name: string }) => (
   <div>{name} — coming soon</div>
@@ -12,8 +12,8 @@ const Placeholder = ({ name }: { name: string }) => (
 
 export default function App() {
   return (
-    <AuthProvider>
-      <ThemeProvider>
+    <ThemeProvider>
+      <AuthProvider>
         <Routes>
           <Route
             path="/"
@@ -74,7 +74,7 @@ export default function App() {
             }
           />
         </Routes>
-      </ThemeProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
